@@ -10,12 +10,12 @@ const EMPTY: PromptFields = {
   source2: "",
 };
 
-const RESET_DELAY_MS = 2600;
+const RESET_DELAY_MS = 5000;
 
 export default function Home() {
   const [fields, setFields] = useState<PromptFields>(EMPTY);
   const [copyState, setCopyState] = useState<"idle" | "copied" | "error">(
-    "idle"
+    "idle",
   );
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -122,12 +122,15 @@ export default function Home() {
             {copyState === "copied"
               ? "Copied — clearing fields…"
               : copyState === "error"
-              ? "Copy failed — select the preview manually"
-              : "Copy full prompt"}
+                ? "Copy failed — select the preview manually"
+                : "Copy full prompt"}
           </button>
         </section>
 
-        <details className="mt-6 rounded-lg border border-console-border bg-console-panelmuted open:pb-4" open>
+        <details
+          className="mt-6 rounded-lg border border-console-border bg-console-panelmuted open:pb-4"
+          open
+        >
           <summary className="cursor-pointer select-none px-5 py-3 font-mono text-xs uppercase tracking-[0.15em] text-white/50">
             Live preview
           </summary>
