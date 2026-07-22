@@ -25,6 +25,12 @@ export default function Home() {
     setFields((prev) => ({ ...prev, [key]: value }));
   }
 
+  function clearFields() {
+    if (resetTimer.current) clearTimeout(resetTimer.current);
+    setFields(EMPTY);
+    setCopyState("idle");
+  }
+
   async function copyAndReset() {
     const text = buildPrompt(fields);
 
@@ -81,19 +87,19 @@ export default function Home() {
           <ol className="space-y-5">
             <Field
               index={1}
-              label="Product Name"
-              hint="A human-readable name, or the raw URL slug — either works."
-              value={fields.productName}
-              onChange={(v) => update("productName", v)}
-              placeholder="e.g. Fanvil X6U Enterprise IP Phone"
-            />
-            <Field
-              index={2}
               label="Current Dayari Product URL"
               hint="The live product page being fixed."
               value={fields.dayariUrl}
               onChange={(v) => update("dayariUrl", v)}
               placeholder="https://dayari.co.ke/product/..."
+            />
+            <Field
+              index={2}
+              label="Product Name"
+              hint="A human-readable name, or the raw URL slug — either works."
+              value={fields.productName}
+              onChange={(v) => update("productName", v)}
+              placeholder="e.g. Fanvil X6U Enterprise IP Phone"
             />
             <Field
               index={3}
@@ -115,16 +121,24 @@ export default function Home() {
             />
           </ol>
 
-          <button
-            onClick={copyAndReset}
-            className="mt-6 w-full rounded-md bg-console-amber px-4 py-3 font-mono text-sm font-semibold uppercase tracking-wide text-console-bg transition hover:brightness-110 active:brightness-95"
-          >
-            {copyState === "copied"
-              ? "Copied — clearing fields…"
-              : copyState === "error"
-                ? "Copy failed — select the preview manually"
-                : "Copy full prompt"}
-          </button>
+          <div className="mt-6 flex gap-3">
+            <button
+              onClick={copyAndReset}
+              className="flex-1 rounded-md bg-console-amber px-4 py-3 font-mono text-sm font-semibold uppercase tracking-wide text-console-bg transition hover:brightness-110 active:brightness-95"
+            >
+              {copyState === "copied"
+                ? "Copied — clearing fields…"
+                : copyState === "error"
+                  ? "Copy failed — select the preview manually"
+                  : "Copy full prompt"}
+            </button>
+            <button
+              onClick={clearFields}
+              className="rounded-md border border-console-border px-4 py-3 font-mono text-sm font-semibold uppercase tracking-wide text-white/60 transition hover:border-white/30 hover:text-white/90 active:brightness-95"
+            >
+              Clear
+            </button>
+          </div>
         </section>
 
         <details
