@@ -25,5 +25,5 @@ Then open http://localhost:3000
 
 - Leaving External Source 1 or 2 blank keeps the original `[]` placeholder
   in the generated prompt, exactly like the source template expects.
-- The reset delay after copying is 2.6 seconds — change `RESET_DELAY_MS` in
+- The reset delay after copying is 5.0 seconds — change `RESET_DELAY_MS` in
   `app/page.tsx` if you want it faster or slower.
