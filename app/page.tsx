@@ -124,10 +124,16 @@ export default function Home() {
           <div className="mt-6 flex gap-3">
             <button
               onClick={copyAndReset}
-              className="flex-1 rounded-md bg-console-amber px-4 py-3 font-mono text-sm font-semibold uppercase tracking-wide text-console-bg transition hover:brightness-110 active:brightness-95"
+              className={`flex-1 rounded-md px-4 py-3 font-mono text-sm font-semibold uppercase tracking-wide transition-colors duration-300 active:brightness-95 ${
+                copyState === "copied"
+                  ? "bg-emerald-500 text-white"
+                  : copyState === "error"
+                    ? "bg-red-500/90 text-white"
+                    : "bg-console-amber text-console-bg hover:brightness-110"
+              }`}
             >
               {copyState === "copied"
-                ? "Copied — clearing fields…"
+                ? "Copied ✓ — clearing fields…"
                 : copyState === "error"
                   ? "Copy failed — select the preview manually"
                   : "Copy full prompt"}
