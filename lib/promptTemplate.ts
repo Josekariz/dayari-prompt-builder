@@ -351,6 +351,30 @@ If multiple products are being handled, label each page clearly with the product
 Use page breaks between products.
 Keep the same section order for every product so the editor develops a repeatable workflow.
 If the output is created directly inside ChatGPT instead of a document file:
+
+CHATGPT DISPLAY RULE:
+
+When producing the answer directly inside ChatGPT, use normal chat Markdown only.
+
+Do not place the answer inside:
+- a writing block;
+- a document artifact;
+- a canvas;
+- a downloadable document;
+- one large outer code block;
+- a table;
+- a quotation block;
+- a collapsible container;
+- or any other wrapper around the full response.
+
+“One complete continuous product-page package” means one normal ChatGPT response from beginning to end. It does not mean placing the full response inside a document or writing container.
+
+Display every heading directly in the normal chat response.
+
+Each editable WordPress, WooCommerce, SEO, or media field must appear in its own separate fenced code block with its own copy button.
+
+Narrative review sections must remain as normal readable text outside code blocks.
+
 Output one complete product at a time.
 Do not jump between products.
 Do not ask the editor to assemble missing pieces from different places.
@@ -872,24 +896,51 @@ Do not publish high-risk product identity conflicts without supervisor review.
 For one product, produce one complete product-page package.
 For multiple products, each product must start as a separate complete package and, when prepared as a document, each product must begin on a new page.
 
-7. OUTPUT FORMATTING FOR COPY-PASTE FIELDS
-This section only controls how the output is displayed. It does not change any content, wording, risk, or compliance requirement defined above.
+7. STRICT CHATGPT OUTPUT AND COPY-BUTTON FORMATTING
 
-For every field meant to be copied straight into a WordPress, WooCommerce, or SEO plugin field, place the exact value inside its own fenced code block so it renders as an individual, one-click copyable box. Use a plain text fence for short fields, and an HTML fence for the long HTML description field so the markup stays readable.
+This section controls exactly how the final answer must be displayed inside ChatGPT.
 
-Apply this to:
-Product Title
-Short Description
-Main Product Description (HTML)
-SEO Title
-Meta Description
-Focus Keyphrase, if used
-Image Alt Text
-Image Title
-Image Caption
-Image Description
+7.1 Use Normal ChatGPT Markdown Only
 
-Do not apply this to the narrative sections. Keep the Admin Warning, Product Identity Verification, Contamination and Risk Check, Category and Tag Review, Internal Linking Plan, AI/LLM Visibility Enhancement, Compliance Checks, Quality Score, and Final Supervisor Notes as plain text, exactly as instructed earlier, since these are read, not pasted.
+Return the complete product-page package directly in the normal ChatGPT conversation.
 
-Inside each code fence, include only the exact value to copy. Do not add quotation marks, labels, or commentary inside the fence. Keep the introductory line telling the editor which field it goes into as plain text directly above the fence, exactly as already required.`;
+Do not use:
+- writing blocks;
+- document artifacts;
+- canvas documents;
+- downloadable files;
+- one large outer code block;
+- tables around the output;
+- quotation blocks around the output;
+- collapsible containers;
+- or any other wrapper around the full response.
+
+Do not use a writing-block syntax such as:
+:::writing
+:::document
+or any similar full-response container.
+
+The response must appear directly in the normal chat interface with visible headings, explanatory sentences, normal narrative text, and individual copyable code blocks.
+
+7.2 Required Display Pattern
+
+For every editable field, use this exact display pattern:
+
+## Field Name
+
+Write one short instruction outside the code block explaining where the editor should paste the content.
+
+Then place only the exact copy-ready value inside its own fenced code block.
+
+Example:
+
+## Product Title
+
+Copy this into the WooCommerce Product Name / Product Title field only if a senior reviewer approves the title change.
+
+\`\`\`text
+Exact product title only
+\`\`\`
+
+Do not place labels, explanations, quotation marks, character counts, notes, citations, warnings, or commentary inside the copyable code block.`;
 }
